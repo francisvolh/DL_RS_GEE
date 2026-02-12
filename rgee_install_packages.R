@@ -17,7 +17,10 @@ rm(list = ls()); gc()
 ## you need a GEE account
 ## log in the https://code.earthengine.google.com/ and register for one
 # will need to be sure your code editor works and its connected to active accout
-# will need an OAuth client also to link to GEE
+# do not creat an OAuth , the process will do it automatically one  linking to GEE
+# be sure to register the project when the Code editor prompts it...
+# very IMPORTANT: in the code editor, under the ASSEST button (top left) create an Assests folder in the project you want to link
+# (rgee will require any folder in the assets tab for syncing)
 
 
 # installing conda environment --------------------------------------------------------------------
@@ -88,7 +91,9 @@ Sys.setenv(EARTHENGINE_PYTHON = rgee_environment_dir)
 # Initialize the Python Environment
 # to clean credentials: ee_clean_credentials()
 rgee::ee_Initialize(drive = T)
-
+# Web browser pop up windows will come up for Tidyverse and for GEE as well.
+# if when Generating a token web in the pop up and get an error, several posibilities:
+# 1) invalid token --> may be because the app in the OAuth consent, is not in Test mode, be sure to set it to test
+# 2) may have created the OAuth separately, and sync issues may arise, if the Error message suggests to create a New Project, do so!
 ## It worked if some text about google drive credentials appeared, and asked you to log in your GEE account.
 ## Congrats.
-
